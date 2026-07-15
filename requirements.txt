@@ -1,0 +1,10 @@
+streamlit
+tensorflow
+numpy
+pandas
+plotly
+opencv-python
+Pillow
+reportlab
+matplotlib
+scikit-learn
