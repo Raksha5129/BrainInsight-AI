@@ -3,8 +3,8 @@ tensorflow==2.16.1
 numpy
 pandas
 plotly
-opencv-python
 Pillow
-reportlab
+opencv-python-headless
 matplotlib
 scikit-learn
+reportlab
