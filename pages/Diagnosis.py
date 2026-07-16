@@ -54,19 +54,20 @@ with right:
 
     if uploaded_file:
 
-        preview = predict(uploaded_file)
-
         with st.container(border=True):
             st.image(
-                preview["image"],
+                uploaded_file,
                 width=320
             )
+            uploaded_file.seek(0)
 
     else:
 
         st.info("Image Preview will appear here.")
 
 st.divider()
+
+# ================= Analyze ================= #
 
 # ================= Analyze ================= #
 
@@ -78,9 +79,9 @@ if st.button("🚀 Analyze MRI", use_container_width=True):
 
     else:
 
-        result = predict(uploaded_file)
+        with st.spinner("🧠 Running AI analysis..."):
 
-        show_progress()
+            result = predict(uploaded_file)
 
         st.success("✅ MRI analysis completed successfully.")
 
