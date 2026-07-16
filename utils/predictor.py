@@ -9,9 +9,6 @@ from utils.preprocessing import preprocess_image
 def load_model():
     return tf.keras.models.load_model("model/BrainInsight_Final.keras")
 
-# Load the model only once and reuse it
-model = load_model()
-
 CLASSES = [
     "Alzheimer",
     "Multiple Sclerosis",
@@ -23,13 +20,12 @@ CLASSES = [
 
 def predict(uploaded_file):
 
+    model = load_model()
+
     # Preprocess image
     original_image, img = preprocess_image(uploaded_file)
 
-    # Prediction
     prediction = model.predict(img, verbose=0)[0]
-    print("Raw Prediction:", prediction)
-
     index = np.argmax(prediction)
 
     disease = CLASSES[index]

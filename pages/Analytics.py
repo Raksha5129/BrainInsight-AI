@@ -88,6 +88,12 @@ with col1:
     )
 
     fig.update_traces(textposition="inside", textinfo="percent+label")
+    fig.update_layout(
+    template="plotly_white",
+    paper_bgcolor="white",
+    plot_bgcolor="white",
+    font=dict(color="#1E293B")
+)
 
     st.plotly_chart(fig, use_container_width=True)
 

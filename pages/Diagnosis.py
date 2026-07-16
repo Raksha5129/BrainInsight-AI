@@ -1,6 +1,4 @@
 import streamlit as st
-import plotly.express as px
-import pandas as pd
 
 from utils.predictor import predict
 
@@ -14,11 +12,6 @@ from components.footer import show_footer
 
 # --------------------------------------------------
 
-st.set_page_config(
-    page_title="MRI Diagnosis",
-    page_icon="assets/logo.png",
-    layout="wide"
-)
 
 with open("assets/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -146,6 +139,8 @@ if st.button("🚀 Analyze MRI", use_container_width=True):
 
         # ================= Probability Chart ================= #
 
+        import plotly.express as px
+        import pandas as pd
         df = pd.DataFrame({
 
             "Disease": list(result["probabilities"].keys()),
