@@ -1,10 +1,16 @@
+ 
+import streamlit as st
 import tensorflow as tf
 import numpy as np
 
 from utils.preprocessing import preprocess_image
-
 # Load model only once
-model = tf.keras.models.load_model("model/BrainInsight_Final.keras")
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model("model/BrainInsight_Final.keras")
+
+# Load the model only once and reuse it
+model = load_model()
 
 CLASSES = [
     "Alzheimer",

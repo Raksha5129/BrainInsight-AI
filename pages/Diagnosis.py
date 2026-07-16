@@ -171,12 +171,26 @@ if st.button("🚀 Analyze MRI", use_container_width=True):
 
         )
 
-        fig.update_layout(height=450)
+        fig.update_layout(
+            height=450,
+            template="plotly_white",
+            paper_bgcolor="white",
+            plot_bgcolor="white",
+            font=dict(
+            family="Poppins",
+            color="#1E293B"
+            ),
+        title_font=dict(
+        size=22,
+        color="#1E293B"
+        )
+        )
 
         st.plotly_chart(
-            fig,
-            use_container_width=True
-        )
+           fig,
+        use_container_width=True,
+        config={"displayModeBar": False}
+       )
 
         st.divider()
 
